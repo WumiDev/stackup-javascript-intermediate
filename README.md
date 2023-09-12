@@ -63,15 +63,15 @@ Switch statements are used to perform different actions based on user input. For
 ```
 // javascript [index.js]
 
-switch (action) {
-    case "checkIn":
-        // Check if student is already checked in
-        if (currentStudent.checkedIn) {
-            throw new Error("Student is already checked in.");
-        }
-        currentStudent.checkedIn = true;
-        // Handle other cases...
-}
+switch (currentStudent.checkedIn) {
+                case true:
+                    throw new Error("Student is already checked in.");
+                case false:
+                    currentStudent.checkedIn = true;
+                    statusMessage.textContent = `${currentStudent.name} has been checked in.`;
+                    statusMessage.style.backgroundColor = "#00ff00";
+                    break;
+            }
 ```
 
 #### 3. Try-Catch-Finally Statements
