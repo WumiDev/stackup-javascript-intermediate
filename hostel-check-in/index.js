@@ -50,20 +50,25 @@ document.addEventListener("DOMContentLoaded", () => {
             if (!currentStudent) {
                 throw new Error("No student is registered.");
             }
-            if (currentStudent.checkedIn) {
-                throw new Error("Student is already checked in.");
+    
+            switch (currentStudent.checkedIn) {
+                case true:
+                    throw new Error("Student is already checked in.");
+                case false:
+                    currentStudent.checkedIn = true;
+                    statusMessage.textContent = `${currentStudent.name} has been checked in.`;
+                    statusMessage.style.backgroundColor = "#00ff00"; // Green background for success
+                    break;
             }
-            currentStudent.checkedIn = true;
-            statusMessage.textContent = `${currentStudent.name} has been checked in.`;
-            statusMessage.style.backgroundColor = "#00ff00"; // Green background for success
         } catch (error) {
             statusMessage.textContent = error.message;
             statusMessage.style.backgroundColor = "#ff0000"; // Red background for error
         } finally {
-            // Set the name input field to name of current student that is being managed
-            document.getElementById("studentName").value = currentStudent.name;
-        } 
+            // Set the name input field to the name of the current student being managed
+            document.getElementById("studentName").value = currentStudent ? currentStudent.name : "";
+        }
     });
+    
 
     checkOutBtn.addEventListener("click", () => {
         try {
