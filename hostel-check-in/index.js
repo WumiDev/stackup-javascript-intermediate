@@ -36,10 +36,12 @@ document.addEventListener("DOMContentLoaded", () => {
             registeredStudents.push(currentStudent); // Add to the list of registered students
             statusMessage.textContent = "Registration successful!";
             statusMessage.style.backgroundColor = "#00ff00"; // Green background for success
-            studentNameInput.value = ""; // Clear the input field
         } catch (error) {
             statusMessage.textContent = error.message;
             statusMessage.style.backgroundColor = "#ff0000"; // Red background for error
+        } finally {
+            // Reset the name input field to an empty value
+            studentNameInput.value = "";
         }
     });
    
@@ -57,7 +59,10 @@ document.addEventListener("DOMContentLoaded", () => {
         } catch (error) {
             statusMessage.textContent = error.message;
             statusMessage.style.backgroundColor = "#ff0000"; // Red background for error
-        }
+        } finally {
+            // Set the name input field to name of current student that is being managed
+            document.getElementById("studentName").value = currentStudent.name;
+        } 
     });
 
     checkOutBtn.addEventListener("click", () => {
@@ -74,6 +79,9 @@ document.addEventListener("DOMContentLoaded", () => {
         } catch (error) {
             statusMessage.textContent = error.message;
             statusMessage.style.backgroundColor = "#ff0000"; // Red background for error
+        } finally {
+            // Set the name input field to name of current student that is being managed
+            document.getElementById("studentName").value = currentStudent.name;
         }
     });
 
