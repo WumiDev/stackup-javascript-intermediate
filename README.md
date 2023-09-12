@@ -89,8 +89,8 @@ try {
 } catch (error) {
     statusMessage.textContent = error.message;
 } finally {
-            // Reset the name input field to an empty value
-            studentNameInput.value = "";
-        }
+    // Reset the name input field to an empty value
+    studentNameInput.value = "";
+}
 
 ```
