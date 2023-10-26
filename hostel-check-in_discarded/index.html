@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="index.css">
+    <title>School Hostel Check-in Management</title>
+</head>
+<body>
+    <div class="container">
+        <h1>School Hostel Check-in Management</h1>
+        <div class="form">
+            <label for="accountType">Account Type:</label>
+            <select id="accountType">
+                <option value="undergraduate">Undergraduate</option>
+                <option value="postgraduate">Postgraduate</option>
+            </select>
+
+            <label for="accountName">Account Holder Name:</label>
+            <input type="text" id="accountName">
+
+            <button id="checkInButton">Check-In</button>
+            <button id="checkOutButton">Check-Out</button>
+            <button id="checkStatusButton">Check Status</button>
+        </div>
+        
+        <div class="form">
+            <h2>Student Registration</h2>
+            <label for="studentName">Student Name:</label>
+            <input type="text" id="studentName">
+            <button id="registerButton">Register Student</button>
+        </div>
+
+        <div id="statusMessage"></div>
+    </div>
+    <script src="index.js"></script>
+</body>
+</html>
